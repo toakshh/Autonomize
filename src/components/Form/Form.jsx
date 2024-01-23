@@ -1,25 +1,35 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Form.css";
-import { githubFetchURL } from "../../constants";
-import useApi from "../../hooks/useApi";
+import { useUserDetailQuery } from "../../redux/features/api/fetchUserData";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/features/user/userSlice";
 
 const Form = () => {
+  const userRef = useRef();
   const [inputVal, setInputVal] = useState("");
-  const [data, loading, error, fetchData] = useApi();
+  const [shouldSubmit, setShouldSubmit] = useState(false);
+  const { data, isLoading, isError } = useUserDetailQuery(
+    shouldSubmit ? userRef.current.value : undefined
+  );
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchData(githubFetchURL + inputVal);
+    if (!inputVal) return;
+    setShouldSubmit(true);
+    dispatch(setUser(data));
   };
-  const handleChange = (e) => {
-    setInputVal(e.target.value);
+  const handleChange = () => {
+    setInputVal(userRef.current.value);
+    setShouldSubmit(false);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
+        ref={userRef}
         type="text"
         name="search"
-        id="searchbox"
         value={inputVal}
         onChange={handleChange}
         className="userInput"
