@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid red; */
+  min-height: 100vh;
+  width: 100%;
+  gap: 1.5rem;
+  font-size: 4rem;
+}
+.userInput {
+  padding: 10px 20px;
+  width: 20%;
+}
+.formSubmit {
+  padding: 10px 20px;
+  cursor: pointer;
+}
