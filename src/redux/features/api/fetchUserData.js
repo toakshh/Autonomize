@@ -32,8 +32,8 @@ export const fetchUserData = createApi({
             }
         }),
         repoDetail: builder.query({
-            query: (name, repo) => {
-                if (!name || !repo) {
+            query: ({ name, repo }) => {
+                if (!repo) {
                     return;
                 }
                 return `/repos/${name}/${repo}`

@@ -5,11 +5,11 @@ import { useUserDetailQuery } from "../../redux/features/api/fetchUserData";
 const UserInfo = () => {
   //   const userInfo = useSelector((state) => state.user?.data);
   const userName = useSelector((state) => state.input.value);
-  console.log(userName);
+  //   console.log(userName);
   const { data } = useUserDetailQuery(userName, {
     skip: !userName,
   });
-  console.log(data);
+  //   console.log(data);
   return (
     <div className="userInfoMain">
       {data && (
