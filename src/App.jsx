@@ -1,13 +1,22 @@
 import "./App.css";
-import Body from "./components/Body/Body";
+import Body from "./pages/Body/Body";
 import Form from "./components/Form/Form";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Detail from "./pages/Detail/Detail";
+import Follower from "./pages/Follower/Follower";
 
 function App() {
   return (
-    <main>
-      <Form />
-      <Body />
-    </main>
+    <BrowserRouter>
+      <main>
+        <Form />
+        <Routes>
+          <Route path="/" element={<Body />} />
+          <Route path="/detail/:repo" element={<Detail />} />
+          <Route path="/followers/:username" element={<Follower />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 

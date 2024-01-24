@@ -27,7 +27,7 @@
   box-shadow: 2px 2px 20px #000;
   background-color: beige;
 }
-.repoImage {
+.userImage {
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -48,5 +48,8 @@
 @media screen and (max-width: 680px) {
   .repoBoxes {
     width: 80%;
+  }
+  .repoBoxes h5 {
+    font-size: 0.7rem;
   }
 }

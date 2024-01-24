@@ -1,6 +1,7 @@
 import "./Body.css";
 import { useSelector } from "react-redux";
 import { useUserRepoQuery } from "../../redux/features/api/fetchUserData";
+import UserInfo from "../../components/UserInfo/UserInfo";
 
 const Body = () => {
   const userInput = useSelector((state) => state.input.value);
@@ -14,13 +15,14 @@ const Body = () => {
 
   return (
     <div className="bodyMain">
+      <UserInfo />
       {data?.map((repo) => {
         // console.log(repo);
         return (
           <div className="repoBoxes" key={repo.id}>
             <div>
               <img
-                className="repoImage"
+                className="userImage"
                 src={repo.owner.avatar_url}
                 alt={`${repo.name}'s image`}
               />

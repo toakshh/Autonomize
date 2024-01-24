@@ -9,3 +9,8 @@ body {
   /* background-color: #f2f2f2; */
   background-color: beige;
 }
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}

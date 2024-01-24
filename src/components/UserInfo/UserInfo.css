@@ -1,0 +1,19 @@
+.userInfoMain {
+  padding: 10px;
+}
+.userLogin {
+  font-style: italic;
+  font-size: x-small;
+}
+.followerBtn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 7px 30px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in;
+  border: 1px solid black;
+}
+.followerBtn:hover {
+  background-color: greenyellow;
+  cursor: pointer;
+}

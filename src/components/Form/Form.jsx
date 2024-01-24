@@ -9,7 +9,7 @@ const Form = () => {
   const userRef = useRef();
   const [inputVal, setInputVal] = useState("");
 
-  const { data, isLoading, isError } = useUserDetailQuery(inputVal, {
+  const { data } = useUserDetailQuery(inputVal, {
     skip: !inputVal,
   });
 
