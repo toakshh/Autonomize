@@ -2,6 +2,7 @@ import "./Body.css";
 import { useSelector } from "react-redux";
 import { useUserRepoQuery } from "../../redux/features/api/fetchUserData";
 import UserInfo from "../../components/UserInfo/UserInfo";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const userInput = useSelector((state) => state.input.value);
@@ -19,7 +20,7 @@ const Body = () => {
       {data?.map((repo) => {
         // console.log(repo);
         return (
-          <div className="repoBoxes" key={repo.id}>
+          <Link to={`/detail/${repo.name}`} className="repoBoxes" key={repo.id}>
             <div>
               <img
                 className="userImage"
@@ -31,7 +32,7 @@ const Body = () => {
               <h5 title={repo.name}>{repo?.name}</h5>
               <p title={repo.description}>{repo?.description}</p>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

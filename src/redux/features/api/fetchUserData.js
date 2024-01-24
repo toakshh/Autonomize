@@ -10,9 +10,9 @@ export const fetchUserData = createApi({
         userDetail: builder.query({
             query: (name) => {
                 if (!name) {
-                    return; // Skip the query
+                    return; // skip query
                 }
-                return `/${name}`;
+                return `/users/${name}`;
             }
         }),
         userRepo: builder.query({
@@ -20,10 +20,26 @@ export const fetchUserData = createApi({
                 if (!name) {
                     return;
                 }
-                return `/${name}/repos`
+                return `/users/${name}/repos`
             }
-        })
+        }),
+        followerList: builder.query({
+            query: (name) => {
+                if (!name) {
+                    return;
+                }
+                return `/users/${name}/followers`
+            }
+        }),
+        repoDetail: builder.query({
+            query: (name, repo) => {
+                if (!name || !repo) {
+                    return;
+                }
+                return `/repos/${name}/${repo}`
+            }
+        }),
     })
 })
 
-export const { useUserDetailQuery, useUserRepoQuery } = fetchUserData
+export const { useUserDetailQuery, useUserRepoQuery, useRepoDetailQuery, useFollowerListQuery } = fetchUserData

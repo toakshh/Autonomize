@@ -1,1 +1,1 @@
-export const githubFetchURL = "https://api.github.com/users"
+export const githubFetchURL = "https://api.github.com"

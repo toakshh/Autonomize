@@ -12,8 +12,8 @@ function App() {
         <Form />
         <Routes>
           <Route path="/" element={<Body />} />
-          <Route path="/detail/:repo" element={<Detail />} />
-          <Route path="/followers/:username" element={<Follower />} />
+          <Route path="/detail/:repoName" element={<Detail />} />
+          <Route path="/followers/:userName" element={<Follower />} />
         </Routes>
       </main>
     </BrowserRouter>
