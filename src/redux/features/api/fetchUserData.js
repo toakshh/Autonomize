@@ -8,9 +8,22 @@ export const fetchUserData = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: githubFetchURL }),
     endpoints: (builder) => ({
         userDetail: builder.query({
-            query: (name) => `/${name}`,
+            query: (name) => {
+                if (!name) {
+                    return; // Skip the query
+                }
+                return `/${name}`;
+            }
+        }),
+        userRepo: builder.query({
+            query: (name) => {
+                if (!name) {
+                    return;
+                }
+                return `/${name}/repos`
+            }
         })
     })
 })
 
-export const { useUserDetailQuery } = fetchUserData
+export const { useUserDetailQuery, useUserRepoQuery } = fetchUserData

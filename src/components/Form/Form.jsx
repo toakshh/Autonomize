@@ -3,25 +3,28 @@ import "./Form.css";
 import { useUserDetailQuery } from "../../redux/features/api/fetchUserData";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/features/user/userSlice";
+import { setUserInput } from "../../redux/features/userInput/userInputSlice";
 
 const Form = () => {
   const userRef = useRef();
   const [inputVal, setInputVal] = useState("");
-  const [shouldSubmit, setShouldSubmit] = useState(false);
-  const { data, isLoading, isError } = useUserDetailQuery(
-    shouldSubmit ? userRef.current.value : undefined
-  );
+
+  const { data, isLoading, isError } = useUserDetailQuery(inputVal, {
+    skip: !inputVal,
+  });
+
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const searchVal = userRef.current.value;
     if (!inputVal) return;
-    setShouldSubmit(true);
     dispatch(setUser(data));
+    dispatch(setUserInput(searchVal));
   };
   const handleChange = () => {
-    setInputVal(userRef.current.value);
-    setShouldSubmit(false);
+    const searchVal = userRef.current.value;
+    setInputVal(searchVal);
   };
 
   return (

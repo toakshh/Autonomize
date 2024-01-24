@@ -12,9 +12,9 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action) => {
+            if (!action.payload) return
             state.data = action.payload
         },
-
     }
 })
 
