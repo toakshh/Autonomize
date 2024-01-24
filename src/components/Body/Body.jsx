@@ -18,12 +18,17 @@ const Body = () => {
         // console.log(repo);
         return (
           <div className="repoBoxes" key={repo.id}>
-            <img
-              className="repoImage"
-              src={repo.owner.avatar_url}
-              alt={`${repo.name}'s image`}
-            />
-            <p title={repo.name}>{repo.name}</p>
+            <div>
+              <img
+                className="repoImage"
+                src={repo.owner.avatar_url}
+                alt={`${repo.name}'s image`}
+              />
+            </div>
+            <div>
+              <h5 title={repo.name}>{repo?.name}</h5>
+              <p title={repo.description}>{repo?.description}</p>
+            </div>
           </div>
         );
       })}
