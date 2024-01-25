@@ -19,7 +19,7 @@ const Detail = () => {
   if (isError) return <h4>Something went wrong. Please try again.</h4>;
 
   return (
-    <div>
+    <div className="userBox">
       {data && (
         <>
           {/* image section */}

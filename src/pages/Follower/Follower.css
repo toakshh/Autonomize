@@ -1,0 +1,25 @@
+.followerMain {
+  /* border: 1px solid black; */
+  width: 100%;
+  padding: 10rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+.userBox {
+  border: 2px solid black;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px black;
+  min-width: 250px;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.userBox:hover {
+  box-shadow: 4px 4px 20px black;
+}

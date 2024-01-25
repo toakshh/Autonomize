@@ -36,9 +36,12 @@ const Form = () => {
         display: "flex",
         alignItems: "center",
         gap: "10px",
+        padding: "10px",
       }}
     >
-      <Link to="/">Home</Link>
+      <Link className="homeLink" to="/">
+        Home
+      </Link>
       <form onSubmit={handleSubmit}>
         <input
           ref={userRef}

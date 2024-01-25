@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useFollowerListQuery } from "../../redux/features/api/fetchUserData";
 import { useDispatch } from "react-redux";
 import { setUserInput } from "../../redux/features/userInput/userInputSlice";
+import "./Follower.css";
 const Follower = () => {
   const { userName } = useParams();
   const dispatch = useDispatch();
@@ -16,12 +17,11 @@ const Follower = () => {
     dispatch(setUserInput(name.login));
     navigate("/");
   };
-  //   console.log(data);
   return (
-    <div>
+    <div className="followerMain">
       {data?.map((follower) => {
         return (
-          <div key={follower.id}>
+          <div className="userBox" key={follower.id}>
             <img
               className="userImage"
               src={follower.avatar_url}
@@ -30,7 +30,12 @@ const Follower = () => {
             <div>
               <h4>{follower.login}</h4>
               <h6>type: {follower.type}</h6>
-              <button onClick={() => handleRepoData(follower)}>Repo</button>
+              <button
+                className="followerBtn"
+                onClick={() => handleRepoData(follower)}
+              >
+                Repo
+              </button>
             </div>
           </div>
         );

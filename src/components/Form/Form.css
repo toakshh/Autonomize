@@ -1,12 +1,41 @@
+.homeLink {
+  padding: 8px 16px;
+  position: relative;
+  font-weight: 600;
+  color: gray !important;
+  transition: all 0.5s ease-in-out;
+  border-radius: 15px;
+}
+.homeLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  display: block;
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+  background-image: linear-gradient(to right, #770fd8ee 0%, #f94782 100%);
+  border-radius: 15px;
+}
+.homeLink:hover::before {
+  width: 100%;
+  border-radius: 15px;
+}
+.homeLink:hover {
+  color: white !important;
+  font-weight: 600;
+}
 form {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   /* border: 2px solid red; */
-  min-height: 20vh;
+  min-height: 12vh;
   width: 100%;
-  font-size: 4rem;
+  font-size: 1rem;
 }
 .userInput {
   padding: 10px 20px;
@@ -15,4 +44,14 @@ form {
 .formSubmit {
   padding: 10px 20px;
   cursor: pointer;
+  background-color: whitesmoke;
+}
+
+@media screen and (max-width: 500px) {
+  form {
+    font-size: 0.7rem;
+  }
+  .formSubmit {
+    padding: 5px 10px;
+  }
 }

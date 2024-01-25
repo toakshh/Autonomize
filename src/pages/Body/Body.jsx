@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 
 const Body = () => {
   const userInput = useSelector((state) => state.input.value);
-  // console.log(userInput);
   const { data, isLoading, isError } = useUserRepoQuery(userInput, {
     skip: !userInput,
   });
-
+  if (!userInput)
+    return (
+      <h3 style={{ marginTop: "10rem" }}>
+        Please enter a username to search data
+      </h3>
+    );
   if (isLoading) return <h2>Loading...</h2>;
   if (isError) return <h4>Something went wrong. Please try again.</h4>;
 
@@ -18,7 +22,6 @@ const Body = () => {
     <div className="bodyMain">
       <UserInfo />
       {data?.map((repo) => {
-        // console.log(repo);
         return (
           <Link to={`/detail/${repo.name}`} className="repoBoxes" key={repo.id}>
             <div>
